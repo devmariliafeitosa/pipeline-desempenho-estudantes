@@ -1,0 +1,82 @@
+RELATÓRIO DA ANÁLISE DOS DADOS
+==================================================
+
+Quantidade de linhas: 145
+Quantidade de colunas: 10
+
+COLUNAS DO DATASET
+--------------------------------------------------
+- STUDENTID
+- AGE
+- GENDER
+- HS_TYPE
+- SCHOLARSHIP
+- WORK
+- ACTIVITY
+- PARTNER
+- SALARY
+- TRANSPORT
+
+TIPOS DAS COLUNAS
+--------------------------------------------------
+STUDENTID        str
+AGE            int64
+GENDER         int64
+HS_TYPE        int64
+SCHOLARSHIP    int64
+WORK           int64
+ACTIVITY       int64
+PARTNER        int64
+SALARY         int64
+TRANSPORT      int64
+dtype: object
+
+VALORES NULOS
+--------------------------------------------------
+STUDENTID      0
+AGE            0
+GENDER         0
+HS_TYPE        0
+SCHOLARSHIP    0
+WORK           0
+ACTIVITY       0
+PARTNER        0
+SALARY         0
+TRANSPORT      0
+dtype: int64
+
+ESTATÍSTICAS DESCRITIVAS
+--------------------------------------------------
+              AGE      GENDER     HS_TYPE  SCHOLARSHIP        WORK    ACTIVITY     PARTNER      SALARY   TRANSPORT
+count  145.000000  145.000000  145.000000   145.000000  145.000000  145.000000  145.000000  145.000000  145.000000
+mean     1.620690    1.600000    1.944828     3.572414    1.662069    1.600000    1.579310    1.627586    1.620690
+std      0.613154    0.491596    0.537216     0.805750    0.474644    0.491596    0.495381    1.020245    1.061112
+min      1.000000    1.000000    1.000000     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+25%      1.000000    1.000000    2.000000     3.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+50%      2.000000    2.000000    2.000000     3.000000    2.000000    2.000000    2.000000    1.000000    1.000000
+75%      2.000000    2.000000    2.000000     4.000000    2.000000    2.000000    2.000000    2.000000    2.000000
+max      3.000000    2.000000    3.000000     5.000000    2.000000    2.000000    2.000000    5.000000    4.000000
+
+DISTRIBUIÇÃO DA BOLSA
+--------------------------------------------------
+SCHOLARSHIP
+1     1
+2     3
+3    76
+4    42
+5    23
+Name: count, dtype: int64
+
+DISTRIBUIÇÃO DO GÊNERO
+--------------------------------------------------
+GENDER
+1    58
+2    87
+Name: count, dtype: int64
+
+DISTRIBUIÇÃO DO TRABALHO
+--------------------------------------------------
+WORK
+1    49
+2    96
+Name: count, dtype: int64
