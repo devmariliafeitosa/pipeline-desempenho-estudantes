@@ -2,26 +2,29 @@ import pandas as pd
 
 df = pd.read_csv("data/processed/dados_limpos_final.csv")
 
-colunas = [
-    "GRADE",
-    "CUML_GPA",
-    "EXP_GPA",
-    "STUDY_HRS"
-]
+df["ALTO_DESEMPENHO"] = (df["GRADE"] >= 4).astype(int)
 
-print("\n========== ANALISE PARA REGRESSAO ==========")
+print("\n========== ANALISE PARA CLASSIFICACAO ==========")
 
-print("\nRESUMO ESTATISTICO:")
-print(df[colunas].describe())
+print("\nDISTRIBUICAO DA VARIAVEL ALVO:")
+print(df["ALTO_DESEMPENHO"].value_counts().sort_index())
 
-print("\nCORRELACAO ENTRE AS VARIAVEIS:")
-print(df[colunas].corr())
-
-print("\nVALORES DE STUDY_HRS:")
-print(df["STUDY_HRS"].value_counts().sort_index())
-
-print("\nMEDIA DE GRADE POR STUDY_HRS:")
+print("\nPERCENTUAL:")
 print(
-    df.groupby("STUDY_HRS")["GRADE"]
-    .agg(["count", "mean", "std"])
+    df["ALTO_DESEMPENHO"]
+    .value_counts(normalize=True)
+    .sort_index()
+    * 100
+)
+
+print("\nMEDIA DOS PREDITORES POR CLASSE:")
+print(
+    df.groupby("ALTO_DESEMPENHO")[
+        [
+            "CUML_GPA",
+            "EXP_GPA",
+            "STUDY_HRS",
+            "ATTEND"
+        ]
+    ].mean()
 )
