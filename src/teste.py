@@ -1,5 +1,9 @@
-from extract.extractor import carregar_dados
+import pandas as pd
 
-df = carregar_dados()
+df = pd.read_csv("data/raw/student_prediction.csv")
 
-print(df.head())
+print("DIMENSÕES:")
+print(df.shape)
+
+print("\nCOLUNAS:")
+print(df.columns.tolist())

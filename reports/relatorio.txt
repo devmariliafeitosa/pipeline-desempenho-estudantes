@@ -2,7 +2,7 @@ RELATÓRIO DA ANÁLISE DOS DADOS
 ==================================================
 
 Quantidade de linhas: 145
-Quantidade de colunas: 10
+Quantidade de colunas: 33
 
 COLUNAS DO DATASET
 --------------------------------------------------
@@ -16,46 +16,117 @@ COLUNAS DO DATASET
 - PARTNER
 - SALARY
 - TRANSPORT
+- LIVING
+- MOTHER_EDU
+- FATHER_EDU
+- #_SIBLINGS
+- KIDS
+- MOTHER_JOB
+- FATHER_JOB
+- STUDY_HRS
+- READ_FREQ
+- READ_FREQ_SCI
+- ATTEND_DEPT
+- IMPACT
+- ATTEND
+- PREP_STUDY
+- PREP_EXAM
+- NOTES
+- LISTENS
+- LIKES_DISCUSS
+- CLASSROOM
+- CUML_GPA
+- EXP_GPA
+- COURSE ID
+- GRADE
 
 TIPOS DAS COLUNAS
 --------------------------------------------------
-STUDENTID        str
-AGE            int64
-GENDER         int64
-HS_TYPE        int64
-SCHOLARSHIP    int64
-WORK           int64
-ACTIVITY       int64
-PARTNER        int64
-SALARY         int64
-TRANSPORT      int64
+STUDENTID          str
+AGE              int64
+GENDER           int64
+HS_TYPE          int64
+SCHOLARSHIP      int64
+WORK             int64
+ACTIVITY         int64
+PARTNER          int64
+SALARY           int64
+TRANSPORT        int64
+LIVING           int64
+MOTHER_EDU       int64
+FATHER_EDU       int64
+#_SIBLINGS       int64
+KIDS             int64
+MOTHER_JOB       int64
+FATHER_JOB       int64
+STUDY_HRS        int64
+READ_FREQ        int64
+READ_FREQ_SCI    int64
+ATTEND_DEPT      int64
+IMPACT           int64
+ATTEND           int64
+PREP_STUDY       int64
+PREP_EXAM        int64
+NOTES            int64
+LISTENS          int64
+LIKES_DISCUSS    int64
+CLASSROOM        int64
+CUML_GPA         int64
+EXP_GPA          int64
+COURSE ID        int64
+GRADE            int64
 dtype: object
 
 VALORES NULOS
 --------------------------------------------------
-STUDENTID      0
-AGE            0
-GENDER         0
-HS_TYPE        0
-SCHOLARSHIP    0
-WORK           0
-ACTIVITY       0
-PARTNER        0
-SALARY         0
-TRANSPORT      0
+STUDENTID        0
+AGE              0
+GENDER           0
+HS_TYPE          0
+SCHOLARSHIP      0
+WORK             0
+ACTIVITY         0
+PARTNER          0
+SALARY           0
+TRANSPORT        0
+LIVING           0
+MOTHER_EDU       0
+FATHER_EDU       0
+#_SIBLINGS       0
+KIDS             0
+MOTHER_JOB       0
+FATHER_JOB       0
+STUDY_HRS        0
+READ_FREQ        0
+READ_FREQ_SCI    0
+ATTEND_DEPT      0
+IMPACT           0
+ATTEND           0
+PREP_STUDY       0
+PREP_EXAM        0
+NOTES            0
+LISTENS          0
+LIKES_DISCUSS    0
+CLASSROOM        0
+CUML_GPA         0
+EXP_GPA          0
+COURSE ID        0
+GRADE            0
 dtype: int64
 
 ESTATÍSTICAS DESCRITIVAS
 --------------------------------------------------
-              AGE      GENDER     HS_TYPE  SCHOLARSHIP        WORK    ACTIVITY     PARTNER      SALARY   TRANSPORT
-count  145.000000  145.000000  145.000000   145.000000  145.000000  145.000000  145.000000  145.000000  145.000000
-mean     1.620690    1.600000    1.944828     3.572414    1.662069    1.600000    1.579310    1.627586    1.620690
-std      0.613154    0.491596    0.537216     0.805750    0.474644    0.491596    0.495381    1.020245    1.061112
-min      1.000000    1.000000    1.000000     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
-25%      1.000000    1.000000    2.000000     3.000000    1.000000    1.000000    1.000000    1.000000    1.000000
-50%      2.000000    2.000000    2.000000     3.000000    2.000000    2.000000    2.000000    1.000000    1.000000
-75%      2.000000    2.000000    2.000000     4.000000    2.000000    2.000000    2.000000    2.000000    2.000000
-max      3.000000    2.000000    3.000000     5.000000    2.000000    2.000000    2.000000    5.000000    4.000000
+              AGE      GENDER     HS_TYPE  ...     EXP_GPA   COURSE ID       GRADE
+count  145.000000  145.000000  145.000000  ...  145.000000  145.000000  145.000000
+mean     1.620690    1.600000    1.944828  ...    2.724138    4.131034    3.227586
+std      0.613154    0.491596    0.537216  ...    0.916536    3.260145    2.197678
+min      1.000000    1.000000    1.000000  ...    1.000000    1.000000    0.000000
+25%      1.000000    1.000000    2.000000  ...    2.000000    1.000000    1.000000
+50%      2.000000    2.000000    2.000000  ...    3.000000    3.000000    3.000000
+75%      2.000000    2.000000    2.000000  ...    3.000000    7.000000    5.000000
+max      3.000000    2.000000    3.000000  ...    4.000000    9.000000    7.000000
+
+[8 rows x 32 columns]
 
 DISTRIBUIÇÃO DA BOLSA
 --------------------------------------------------

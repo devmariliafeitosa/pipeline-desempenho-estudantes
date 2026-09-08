@@ -44,13 +44,47 @@ def remover_outliers_iqr(df):
 
     print("\n========== IQR ==========")
 
+    colunas_categoricas = [
+        "AGE",
+        "GENDER",
+        "HS_TYPE",
+        "SCHOLARSHIP",
+        "WORK",
+        "ACTIVITY",
+        "PARTNER",
+        "SALARY",
+        "TRANSPORT",
+        "LIVING",
+        "MOTHER_EDU",
+        "FATHER_EDU",
+        "#_SIBLINGS",
+        "KIDS",
+        "MOTHER_JOB",
+        "FATHER_JOB",
+        "STUDY_HRS",
+        "READ_FREQ",
+        "READ_FREQ_SCI",
+        "ATTEND_DEPT",
+        "IMPACT",
+        "ATTEND",
+        "PREP_STUDY",
+        "PREP_EXAM",
+        "NOTES",
+        "LISTENS",
+        "LIKES_DISCUSS",
+        "CLASSROOM",
+        "CUML_GPA",
+        "EXP_GPA",
+        "COURSE ID",
+        "GRADE"
+    ]
+
     colunas_numericas = df.select_dtypes(include="number").columns
 
     for coluna in colunas_numericas:
 
-        # Ignora colunas com poucos valores distintos
-        # (normalmente representam categorias codificadas)
-        if df[coluna].nunique() <= 5:
+        if coluna in colunas_categoricas:
+            print(f"{coluna}: variável categórica/ordinal, IQR não aplicado.")
             continue
 
         q1 = df[coluna].quantile(0.25)
@@ -62,15 +96,15 @@ def remover_outliers_iqr(df):
         limite_superior = q3 + 1.5 * iqr
 
         quantidade = (
-            (df[coluna] < limite_inferior) |
-            (df[coluna] > limite_superior)
+            (df[coluna] < limite_inferior)
+            | (df[coluna] > limite_superior)
         ).sum()
 
         print(f"{coluna}: {quantidade} outlier(s) encontrados.")
 
         df = df[
-            (df[coluna] >= limite_inferior) &
-            (df[coluna] <= limite_superior)
+            (df[coluna] >= limite_inferior)
+            & (df[coluna] <= limite_superior)
         ]
 
     return df
