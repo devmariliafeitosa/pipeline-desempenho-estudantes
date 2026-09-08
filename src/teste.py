@@ -2,13 +2,26 @@ import pandas as pd
 
 df = pd.read_csv("data/processed/dados_limpos_final.csv")
 
-print("\n========== ANALISE DA VARIAVEL WORK ==========")
+colunas = [
+    "GRADE",
+    "CUML_GPA",
+    "EXP_GPA",
+    "STUDY_HRS"
+]
 
-print("\nValores encontrados:")
-print(sorted(df["WORK"].unique()))
+print("\n========== ANALISE PARA REGRESSAO ==========")
 
-print("\nQuantidade por categoria:")
-print(df["WORK"].value_counts().sort_index())
+print("\nRESUMO ESTATISTICO:")
+print(df[colunas].describe())
 
-print("\nMedia de GRADE por categoria de WORK:")
-print(df.groupby("WORK")["GRADE"].agg(["count", "mean", "std"]))
+print("\nCORRELACAO ENTRE AS VARIAVEIS:")
+print(df[colunas].corr())
+
+print("\nVALORES DE STUDY_HRS:")
+print(df["STUDY_HRS"].value_counts().sort_index())
+
+print("\nMEDIA DE GRADE POR STUDY_HRS:")
+print(
+    df.groupby("STUDY_HRS")["GRADE"]
+    .agg(["count", "mean", "std"])
+)
