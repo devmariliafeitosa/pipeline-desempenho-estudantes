@@ -5,8 +5,16 @@ from visualization.visualize import gerar_grafico
 from analysis.eda import analise_exploratoria
 from analysis.report import gerar_relatorio
 
+from inference.bootstrap import executar_bootstrap
+from inference.ab_testing import executar_teste_permutacao
+
+from models.regression import executar_regressao
+from models.machine_learning import executar_classificacao
+from models.unsupervised import executar_nao_supervisionado
+
 
 def main():
+    print("\n========== INICIO DO PIPELINE ==========")
 
     df = carregar_dados()
 
@@ -28,7 +36,17 @@ def main():
 
     gerar_grafico(df)
 
-    print("\nPipeline finalizado com sucesso!")
+    executar_bootstrap()
+
+    executar_teste_permutacao()
+
+    executar_regressao()
+
+    executar_classificacao()
+
+    executar_nao_supervisionado()
+
+    print("\n========== PIPELINE FINALIZADO COM SUCESSO! ==========")
 
 
 if __name__ == "__main__":
