@@ -2,15 +2,19 @@ import pandas as pd
 
 
 def limpar_dados(df):
-
     print("\n========== LIMPEZA DOS DADOS ==========")
+
+    df.columns = (
+        df.columns
+        .str.strip()
+        .str.upper()
+        .str.replace(" ", "_")
+    )
 
     linhas_antes = df.shape[0]
 
-    # Remove registros duplicados
     df = df.drop_duplicates()
 
-    # Colunas de texto
     colunas_texto = df.select_dtypes(include=["object", "string"]).columns
 
     for coluna in colunas_texto:
@@ -21,15 +25,10 @@ def limpar_dados(df):
             .str.title()
         )
 
-    # Trata valores nulos
     for coluna in df.columns:
-
         if pd.api.types.is_numeric_dtype(df[coluna]):
-
             df[coluna] = df[coluna].fillna(df[coluna].median())
-
         else:
-
             if not df[coluna].mode().empty:
                 df[coluna] = df[coluna].fillna(df[coluna].mode()[0])
 
@@ -40,8 +39,8 @@ def limpar_dados(df):
 
     return df
 
-def remover_outliers_iqr(df):
 
+def remover_outliers_iqr(df):
     print("\n========== IQR ==========")
 
     colunas_categoricas = [
@@ -75,14 +74,13 @@ def remover_outliers_iqr(df):
         "CLASSROOM",
         "CUML_GPA",
         "EXP_GPA",
-        "COURSE ID",
+        "COURSE_ID",
         "GRADE"
     ]
 
     colunas_numericas = df.select_dtypes(include="number").columns
 
     for coluna in colunas_numericas:
-
         if coluna in colunas_categoricas:
             print(f"{coluna}: variável categórica/ordinal, IQR não aplicado.")
             continue
